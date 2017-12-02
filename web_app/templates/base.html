@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="AngularApp">
+<head>
+    <title>{{ title }} | Electron App</title>
+    <!-- Modules-->
+    <link href="{{ url_for('static', filename='css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/simple-line-icons.css') }}" rel="stylesheet">
+    <!-- App style -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='lib/angular/angular.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/angular/angular-resource.js') }}"></script>
+</head>
+
+<body>
+
+      {% block body %}
+      {% endblock %}
+
+    <!-- plugins -->
+	<script src="{{ url_for('static', filename='lib/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/popper.js/dist/umd/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+    <!-- angular js and app -->
+    <script src="{{ url_for('static', filename='js/ui.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/angular_app.js') }}"></script>
+
+
+</body>
+</html>

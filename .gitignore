@@ -1,0 +1,6 @@
+packages/
+node_modules/
+.DS_Store
+*.py.swp
+*.pyc
+.idea
