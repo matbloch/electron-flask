@@ -18,6 +18,3 @@ def setup_app():
     from web_app import routing
 
     return app
-
-
-
