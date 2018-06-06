@@ -2,10 +2,6 @@
 
 ![Contribution guidelines for this project](screenshot.png)
 
-This template provides the basic structure to turn a Flask powered website into a cross-platform desktop app.
-It features:
-- A scalable structure suitable for small to large projects
-- Blueprint routing
 
 ### Dependencies
 - [Node.js](https://nodejs.org/en/)
