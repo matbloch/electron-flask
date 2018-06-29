@@ -17,7 +17,7 @@ var subpy = null;
 app.on('ready', function() {
 	
 	// spawn server
-	subpy = require('child_process').spawn('python', [__dirname + '/app/run_app.py']);
+	subpy = require('child_process').spawn('python', [__dirname + '/web_app/run_app.py']);
 
   // Create the browser mainWindow
   mainWindow = new BrowserWindow({
