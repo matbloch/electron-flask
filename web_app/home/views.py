@@ -1,5 +1,4 @@
 from flask import render_template
-
 from . import home
 
 
@@ -16,7 +15,4 @@ def dashboard():
     """
     Render the dashboard template on the /dashboard route
     """
-
-    # get jobs
-
     return render_template('page/home/dashboard.html', title="Dashboard")
