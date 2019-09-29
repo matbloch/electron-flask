@@ -15,6 +15,13 @@
 2. Install Python dependencies `python -m pip install -r requirements.txt`
 3. Install node modules `npm install`
 
+### Why Flask?
+
+- Using a Flask webserver for ICP comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
+- For other applications there are more efficient alternatives to using Flask/HTTP for interprocess communication (ICP), e.g. [zerorpc](https://www.zerorpc.io/).
+
+![Process scheme](ipc.png)
+
 ## Running the App
 
 **Start app**
@@ -50,15 +57,6 @@ Packaging is done in two steps:
 
 - asar is read-only, .pyc files cannot be created
 - When bundling the standalone Python executable in an .asar, a random filename is generated. This makes life-cycle management of the backend service difficult (see also section *Bundling*).
-
-## Notes
-
-- There are more efficient alternatives to using Flask and HTTP as interprocess communication (ICP), e.g. [zerorpc](https://www.zerorpc.io/).
-- Using a Flask webserver for ICP comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
-
-![Process scheme](ipc.png)
-
-
 
 ## Feature Backlog
 
