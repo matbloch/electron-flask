@@ -17,8 +17,8 @@
 
 ### Why Flask?
 
-- Using a Flask webserver for ICP comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
-- For other applications there are more efficient alternatives to using Flask/HTTP for interprocess communication (ICP), e.g. [zerorpc](https://www.zerorpc.io/).
+- Using a Flask webserver for  interprocess communication (ICP) comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
+- For other applications there are more efficient alternatives to using Flask/HTTP for ICP, e.g. [zerorpc](https://www.zerorpc.io/).
 
 ![Process scheme](ipc.png)
 
@@ -32,7 +32,7 @@
 
 - `electron .`
 
-**Run the app through your web browser
+**Run the app through your web browser**
 
 - Start Flask server manually: `python web_app/run_app.py`
 
