@@ -12,12 +12,12 @@ const PY_DIST_FOLDER = "dist-python"; // python distributable folder
 const PY_SRC_FOLDER = "web_app"; // path to the python source
 const PY_MODULE = "run_app.py"; // the name of the main module
 
-const guessPackaged = () => {
+const isRunningInBundle = () => {
   return require("fs").existsSync(path.join(__dirname, PY_DIST_FOLDER));
 };
 
 const getPythonScriptPath = () => {
-  if (!guessPackaged()) {
+  if (!isRunningInBundle()) {
     return path.join(__dirname, PY_SRC_FOLDER, PY_MODULE + ".py");
   }
   if (process.platform === "win32") {
@@ -32,10 +32,10 @@ const getPythonScriptPath = () => {
 
 const startPythonSubprocess = () => {
   let script = getPythonScriptPath();
-  if (guessPackaged()) {
+  if (isRunningInBundle()) {
     subpy = require("child_process").execFile(script, []);
   } else {
-    subpy = require("child_process").spawn("python", [script, port]);
+    subpy = require("child_process").spawn("python", [script]);
   }
 };
 

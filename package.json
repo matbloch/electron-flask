@@ -14,7 +14,7 @@
   "build": {
     "appId": "com.electron-flask.my-app",
     "productName": "ElectronFlask",
-    "asar": true,
+    "asar": false,
     "asarUnpack": [
       "**/*.node"
     ],

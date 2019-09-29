@@ -7,7 +7,7 @@
 ### Dependencies
 
 - [Node.js](https://nodejs.org/en/)
-- Python3
+- Python 3
 
 ### Installation
 
@@ -19,13 +19,13 @@
 
 **Start app**
 - Windows: `.\node_modules\.bin\electron .`
-- MacOS/Linux: `./node_modules/.bin/electron .`
+- Mac OS/Linux: `./node_modules/.bin/electron .`
 
 **Start app with globally installed electron**
 
 - `electron .`
 
-**Run the app through your webbrowser**
+**Run the app through your web browser
 
 - Start Flask server manually: `python web_app/run_app.py`
 
@@ -49,7 +49,7 @@ Packaging is done in two steps:
 ## Encountered Issues
 
 - asar is read-only, .pyc files cannot be created
-- When bundling the standalone Python executable in asar, a random filename is generated. This makes life-cycle management of the backend service difficult (see also section *Bundling*).
+- When bundling the standalone Python executable in an .asar, a random filename is generated. This makes life-cycle management of the backend service difficult (see also section *Bundling*).
 
 ## Notes
 
@@ -76,3 +76,10 @@ def resource_path(relative_path):
     return os.path.join(os.path.abspath("."), relative_path)
 ```
 
+**Cross-Compilation through Docker**
+
+- create a Docker image to allow building for Linux on Windows
+
+**ASAR Bundling**
+
+- When bundling the electron app in an .asar, the path to the python executable (which is copied to the resource folder) is not resolved properly
