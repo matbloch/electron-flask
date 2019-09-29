@@ -1,14 +1,47 @@
 {
   "name": "electron-flask",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
-  "main": "main.js",
+  "main": "electron.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "package": "npm run -s package-python && npm run -s package-electron && npm run -s package-cleanup",
+    "package-python": "pyinstaller -w -F --add-data web_app/templates;templates --add-data web_app/static;static web_app/run_app.py --distpath dist-python",
+    "package-electron": "electron-builder",
+    "package-cleanup": "rm -rf build && rm -rf run_app.spec && rm -rf dist-python"
+  },
+  "build": {
+    "appId": "com.electron-flask.my-app",
+    "productName": "ElectronFlask",
+    "asar": true,
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "electron.js",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "dist-python/",
+        "to": "app/dist-python",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ]
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^1.7.9"
+    "ps-tree": "^1.2.0"
+  },
+  "devDependencies": {
+    "electron": "^6.0.10",
+    "electron-builder": "^21.2.0"
   }
 }
