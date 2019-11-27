@@ -18,7 +18,7 @@ const isRunningInBundle = () => {
 
 const getPythonScriptPath = () => {
   if (!isRunningInBundle()) {
-    return path.join(__dirname, PY_SRC_FOLDER, PY_MODULE + ".py");
+    return path.join(__dirname, PY_SRC_FOLDER, PY_MODULE);
   }
   if (process.platform === "win32") {
     return path.join(
