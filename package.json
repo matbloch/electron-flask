@@ -2,12 +2,12 @@
   "name": "electron-flask",
   "version": "1.1.0",
   "description": "",
-  "main": "electron.js",
+  "main": "renderer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "package": "npm run -s package-python && npm run -s package-electron && npm run -s package-cleanup",
-    "package-python": "pyinstaller -w -F --add-data web_app/templates;templates --add-data web_app/static;static web_app/run_app.py --distpath dist-python",
+    "package-python": "pyinstaller -w -F --add-data web_app/app/templates;templates --add-data web_app/app/static;static web_app/run_app.py --distpath dist-python",
     "package-electron": "electron-builder",
     "package-cleanup": "rm -rf build && rm -rf run_app.spec && rm -rf dist-python"
   },
@@ -22,7 +22,7 @@
       "category": "public.app-category.utilities"
     },
     "files": [
-      "electron.js",
+      "renderer.js",
       "node_modules/**/*"
     ],
     "extraResources": [
