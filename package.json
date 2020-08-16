@@ -1,6 +1,6 @@
 {
   "name": "electron-flask",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "main": "renderer.js",
   "scripts": {
@@ -23,6 +23,7 @@
     },
     "files": [
       "renderer.js",
+      "icon.png",
       "node_modules/**/*"
     ],
     "extraResources": [
@@ -41,7 +42,7 @@
     "ps-tree": "^1.2.0"
   },
   "devDependencies": {
-    "electron": "^6.0.10",
-    "electron-builder": "^21.2.0"
+    "electron": "^9.2.0",
+    "electron-builder": "^22.8.0"
   }
 }

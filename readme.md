@@ -2,8 +2,6 @@
 
 ![Contribution guidelines for this project](screenshot.png)
 
-
-
 ### Dependencies
 
 - [Node.js](https://nodejs.org/en/)
@@ -15,14 +13,7 @@
 2. Install Python dependencies `python -m pip install -r requirements.txt`
 3. Install node modules `npm install`
 
-### Why Flask?
-
-- Using a Flask webserver for  interprocess communication (ICP) comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
-- For other applications there are more efficient alternatives to using Flask/HTTP for ICP, e.g. [zerorpc](https://www.zerorpc.io/).
-
-![Process scheme](ipc.png)
-
-## Running the App
+### Running the App
 
 **Start app**
 - Windows: `.\node_modules\.bin\electron .`
@@ -36,7 +27,7 @@
 
 - Start Flask server manually: `python web_app/run_app.py`
 
-## Bundling
+### Bundling
 
 Packaging is done in two steps:
 
@@ -52,6 +43,17 @@ Packaging is done in two steps:
 **Cross-Platform packaging**
 
 - Not yet supported (due to lacking cross-compilation support of *PyInstaller*)
+
+
+
+## Why Flask?
+
+- Using a Flask webserver for  interprocess communication (ICP) comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
+- For other applications there are more efficient alternatives to using Flask/HTTP for ICP, e.g. [zerorpc](https://www.zerorpc.io/).
+
+![Process scheme](ipc.png)
+
+
 
 ## Encountered Issues
 
