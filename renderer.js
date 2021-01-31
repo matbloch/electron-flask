@@ -126,7 +126,7 @@ app.on("activate", () => {
     startPythonSubprocess();
   }
   if (win === null) {
-    createWindow();
+    createMainWindow();
   }
 });
 
