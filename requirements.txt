@@ -1,2 +1,2 @@
-Flask==1.1.1
-PyInstaller>=3.6
+Flask~=2.0
+PyInstaller~=4.4
