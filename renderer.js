@@ -39,26 +39,26 @@ const startPythonSubprocess = () => {
   }
 };
 
-const killPythonSubprocesses = main_pid => {
+const killPythonSubprocesses = (main_pid) => {
   const python_script_name = path.basename(getPythonScriptPath());
   let cleanup_completed = false;
   const psTree = require("ps-tree");
-  psTree(main_pid, function(err, children) {
+  psTree(main_pid, function (err, children) {
     let python_pids = children
-      .filter(function(el) {
+      .filter(function (el) {
         return el.COMMAND == python_script_name;
       })
-      .map(function(p) {
+      .map(function (p) {
         return p.PID;
       });
     // kill all the spawned python processes
-    python_pids.forEach(function(pid) {
+    python_pids.forEach(function (pid) {
       process.kill(pid);
     });
     subpy = null;
     cleanup_completed = true;
   });
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     (function waitForSubProcessCleanup() {
       if (cleanup_completed) return resolve();
       setTimeout(waitForSubProcessCleanup, 30);
@@ -77,7 +77,7 @@ const createMainWindow = () => {
     // opacity:0.8,
     // darkTheme: true,
     // frame: false,
-    resizeable: true
+    resizeable: true,
   });
 
   // Load the index page
@@ -87,7 +87,7 @@ const createMainWindow = () => {
   //mainWindow.webContents.openDevTools();
 
   // Emitted when the mainWindow is closed.
-  mainWindow.on("closed", function() {
+  mainWindow.on("closed", function () {
     // Dereference the mainWindow object
     mainWindow = null;
   });
@@ -96,14 +96,14 @@ const createMainWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", function() {
+app.on("ready", function () {
   // start the backend server
   startPythonSubprocess();
   createMainWindow();
 });
 
 // disable menu
-app.on("browser-window-created", function(e, window) {
+app.on("browser-window-created", function (e, window) {
   window.setMenu(null);
 });
 
@@ -130,6 +130,6 @@ app.on("activate", () => {
   }
 });
 
-app.on("quit", function() {
+app.on("quit", function () {
   // do some additional cleanup
 });

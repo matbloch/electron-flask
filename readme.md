@@ -31,40 +31,36 @@
 
 Packaging is done in two steps:
 
-1. A standalone Python executable containing the Flask backend is generated using *PyInstaller*
-2. The Python executable and the electron application (`electron.js`) are bundled using *electron-builder*
+1. A standalone Python executable containing the Flask backend is generated using _PyInstaller_
+2. The Python executable and the electron application (`electron.js`) are bundled using _electron-builder_
 
 > **NOTE:** The Python executable is generated in the "one-file-mode"; All dependencies are wrapped in a single executable. When executed, the program is decompressed to a temporary directory and run in a **second process** from there. This has to be considered in the life-cycle management of the electron app. See `killPythonSubprocesses` of `electron.js`.
 
 **Package the app for the host platform**
 
-- `npm run package `  (output binaries will be stored in `/dist`)
+- `npm run package ` (output binaries will be stored in `/dist`)
 
 **Cross-Platform packaging**
 
-- Not yet supported (due to lacking cross-compilation support of *PyInstaller*)
-
-
+- Not yet supported (due to lacking cross-compilation support of _PyInstaller_)
 
 ## Why Flask?
 
-- Using a Flask webserver for  interprocess communication (ICP) comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
+- Using a Flask webserver for interprocess communication (ICP) comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
 - For other applications there are more efficient alternatives to using Flask/HTTP for ICP, e.g. [zerorpc](https://www.zerorpc.io/).
 
 ![Process scheme](ipc.png)
 
-
-
 ## Encountered Issues
 
 - asar is read-only, .pyc files cannot be created
-- When bundling the standalone Python executable in an .asar, a random filename is generated. This makes life-cycle management of the backend service difficult (see also section *Bundling*).
+- When bundling the standalone Python executable in an .asar, a random filename is generated. This makes life-cycle management of the backend service difficult (see also section _Bundling_).
 
 ## Feature Backlog
 
 **Bundling Resources with the Python Executable**
 
-- use ``--add-data`` to bundle resources with the python executables (use ``sys._MEIPASS`` to resolve paths)
+- use `--add-data` to bundle resources with the python executables (use `sys._MEIPASS` to resolve paths)
 
 - see https://github.com/ChrisKnott/Eel/issues/57
 

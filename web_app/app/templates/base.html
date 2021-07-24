@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>{{ title }} | Electron App</title>
     <!-- App style -->
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-</head>
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-      {% block body %}
-      {% endblock %}
-</body>
+  <body>
+    {% block body %} {% endblock %}
+  </body>
 </html>
