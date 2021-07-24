@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "package": "npm run -s package-python && npm run -s package-electron && npm run -s package-cleanup",
-    "package-python": "pyinstaller -w --onefile --add-data web_app/app/templates;templates --add-data web_app/app/static;static web_app/run_app.py --distpath dist-python",
+    "package": "node package_python.js && npm run -s package-electron && npm run -s package-cleanup",
     "package-electron": "electron-builder",
     "package-cleanup": "rm -rf build && rm -rf run_app.spec && rm -rf dist-python"
   },
