@@ -2,16 +2,21 @@
 
 ![Contribution guidelines for this project](screenshot.png)
 
+
 ### Dependencies
 
-- [Node.js](https://nodejs.org/en/)
-- Python 3
+| Python 3.9 | NodeJS 16.x | ![example workflow](https://github.com/matbloch/electron-flask/actions/workflows/node.js.yml/badge.svg) |
+| ---------- | ----------- | ------------------------------------------------------------ |
+
+
 
 ### Installation
 
 1. Clone the repository `git clone ...`
 2. Install Python dependencies `python -m pip install -r requirements.txt`
 3. Install node modules `npm install`
+
+
 
 ### Running the App
 
@@ -26,6 +31,8 @@
 **Run the app through your web browser**
 
 - Start Flask server manually: `python web_app/run_app.py`
+
+
 
 ### Bundling
 
@@ -44,6 +51,8 @@ Packaging is done in two steps:
 
 - Not yet supported (due to lacking cross-compilation support of _PyInstaller_)
 
+
+
 ## Why Flask?
 
 - Using a Flask webserver for interprocess communication (ICP) comes in handy to bundle an existing Flask-based service into a desktop application. The endpoints don't have to be changed.
@@ -51,10 +60,14 @@ Packaging is done in two steps:
 
 ![Process scheme](ipc.png)
 
+
+
 ## Encountered Issues
 
 - asar is read-only, .pyc files cannot be created
 - When bundling the standalone Python executable in an .asar, a random filename is generated. This makes life-cycle management of the backend service difficult (see also section _Bundling_).
+
+
 
 ## Feature Backlog
 
