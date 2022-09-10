@@ -6,6 +6,5 @@ node_modules/
 *.py.swp
 *.pyc
 .idea
-package-lock.json
 *.spec
 .venv
